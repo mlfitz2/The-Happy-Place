@@ -1,0 +1,20 @@
+[
+    {
+        "name": "John",
+        "email": "imjohn@gmail.com",
+        "password": "password",
+        "bio": "My name is John and I'm so grateful for lots of things."
+    },
+    {
+        "name": "Sally",
+        "email": "imsally@gmail.com",
+        "password": "password",
+        "bio": "My name is Sally and I love gardening."
+    },
+    {
+        "name": "Mario",
+        "email": "immario@gmail.com",
+        "password": "password",
+        "bio": "My name is Mario and I like cooking."
+    }
+]
