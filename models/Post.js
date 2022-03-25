@@ -17,6 +17,9 @@ Post.init(
         },
         content: {
             type: DataTypes.STRING(500),
+            validate: {
+                len: [1, 500]
+            },
             allowNull: false
         },
         user_id: {
@@ -33,7 +36,7 @@ Post.init(
         timestamps: true,
         freezeTableName: true,
         underscored: true,
-        modelName: 'project',
+        modelName: 'post',
       }
 );
 
