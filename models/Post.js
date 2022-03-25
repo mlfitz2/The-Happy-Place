@@ -19,13 +19,9 @@ Post.init(
             type: DataTypes.STRING(500),
             allowNull: false
         },
-        date_created: {
-            type: DataTypes.DATE,
-            allowNull: false,
-            defaultValue: DataTypes.NOW
-        },
         user_id: {
             type: DataTypes.INTEGER,
+            allowNull: false,
             references: {
                 model: 'user',
                 key: 'id'
@@ -41,4 +37,4 @@ Post.init(
       }
 );
 
-module.exports = Project;
+module.exports = Post;
