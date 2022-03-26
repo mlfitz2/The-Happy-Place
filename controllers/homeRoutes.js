@@ -3,10 +3,10 @@ const { Post, User } = require('../models');
 const withAuth = require('../utils/auth');
 
 // Render the home feed page for all users whether logged in or not
-router.get('/:id', async (req, res) => {
-    let pageNumber = 0;
-    if(req.params.id) {
-        pageNumber = req.params.id * 20;
+router.get('/:page', async (req, res) => {
+    let postNumber = 0;
+    if(req.params.page) {
+        postNumber = req.params.page * 20;
     }
    try {
     const postData = await Post.findAll({
@@ -14,7 +14,7 @@ router.get('/:id', async (req, res) => {
         {
           model: User,
           attributes: [
-            'username'
+            'name'
           ]
         }
       ],
@@ -24,7 +24,7 @@ router.get('/:id', async (req, res) => {
       order: [
         ['created_at', 'DESC']
       ],
-      offset: pageNumber,
+      offset: postNumber,
       limit: 20
     });
 
