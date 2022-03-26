@@ -38,27 +38,45 @@
 
 ##                  Technologies and Development:
 
-Built With:
+**Built With:**
 
 [MVC architecture](https://developer.mozilla.org/en-US/docs/Glossary/MVC)
 
-            ```
-            Insert Example Code Block Here
-            ```
+            We have utilized the Model-View-Controller paradigm. The MVC is a pattern in software design commonly used to implement user interfaces, data, and controlling logic. It emphasizes a separation between the software's business logic and display. This "separation of concerns" provides for a better division of labor and improved maintenance.`
 
 [Node.js](https://nodejs.org/en/docs/)
 
         
-            ```
-            Insert Example Code Block Here
-            ```
+            Through Node.js, Express.js, and Sequelize we are utilizing CRUD methodologies in the back-end development to CREATE, READ, UPDATE, AND DELETE data. 
+
 
 [Express.js](https://expressjs.com/)
 
-         
-            ```
-            Insert Example Code Block Here
-            ```
+            Example CRUD code block:
+
+
+                                ```
+                                router.delete('/:id', async (req, res) => {
+                        // delete a post by its `id` value
+                        try {
+                        const postData = await Post.destroy(
+                            {
+                            where: {
+                                id: req.params.id
+                            }
+                            }
+                        );
+                            if(!postData) {
+                            res.status(404).json({message: 'No post with this id exists.'});
+                            return;
+                            }
+                            res.status(200).json({ message: `Post deleted` });
+                            } catch (error) {
+                            console.log(error);
+                            res.status(500).json({ message: `${error}` });
+                            };
+                    });
+                                ```
 
 [Sequelize](https://sequelize.org/)
 
