@@ -7,7 +7,7 @@
 
 **The Happy Place :)** is an app that allows users to *journal daily on subjects that contribute to their wellbeing, and mental health.* Users can use this as a private diary, or share their posts publicly. 
 
-**As social media has become an increasingly toxic environment driven by a need for instant gratification* our app will not be based on interaction or likes, and instead will focus on the *value of journaling positive experiences.*
+**As social media has become an increasingly toxic environment driven by a need for instant gratification** our app will not be based on interaction or likes, and instead will focus on the *value of journaling positive experiences.*
 
 
 
