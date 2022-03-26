@@ -26,7 +26,9 @@ router.put('/:id', async (req, res) => {
     try{
         const postData = await Post.update(
             {
-                content: req.body.content
+                title: req.body.content,
+                content: req.body.content,
+                public: req.body.public
             },
             {
                 where: {
