@@ -22,6 +22,10 @@ Post.init(
             },
             allowNull: false
         },
+        public: {
+            type: DataTypes.BOOLEAN,
+            allowNull: false
+        },
         user_id: {
             type: DataTypes.INTEGER,
             allowNull: false,
