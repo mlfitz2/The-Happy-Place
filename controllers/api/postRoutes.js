@@ -4,6 +4,8 @@ const withAuth = require('../../utils/auth');
 
 // need to add in withAuth once setup to do so
 
+
+// create a new post
 router.post('/', async (req, res) => {
     try {
         const newPost = await Post.create({
@@ -21,8 +23,8 @@ router.post('/', async (req, res) => {
       }
 });
 
+// update an existing post
 router.put('/:id', async (req, res) => {
-    // update a post by its `id` value
     try{
         const postData = await Post.update(
             {
@@ -48,8 +50,8 @@ router.put('/:id', async (req, res) => {
     }
 });
 
+// delete a post by its `id` value
 router.delete('/:id', async (req, res) => {
-    // delete a post by its `id` value
     try {
       const postData = await Post.destroy(
         {
