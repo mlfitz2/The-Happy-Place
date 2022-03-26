@@ -28,5 +28,53 @@
         "content": "My cat was making the cutest purring sounds and it reminded me how grateful I am for my fluffy friend.",
         "public": false,
         "user_id": 2
+    },
+    {
+        "title": "My Favorite Food",
+        "content": "Today I had lunch at my favorite restaurant, and I'm so grateful to have such great food right in my neighborhood.",
+        "public": true,
+        "user_id": 1
+    },
+    {
+        "title": "Kindness of Strangers",
+        "content": "Today I left my wallet next to the checkout at the grocery store, and another customer chased me down to give it back to me. I was so grateful for this kind person!",
+        "public": true,
+        "user_id": 1
+    },
+    {
+        "title": "Sunny Day",
+        "content": "Today was so sunny and beautiful outside. I went for a walk and was so grateful for such lovely nature.",
+        "public": true,
+        "user_id": 1
+    },
+    {
+        "title": "Garden Success!",
+        "content": "The tomatoes that I've been growing were ready for harvest today, so I made an amazing salad with them. So fresh and delicious!",
+        "public": true,
+        "user_id": 1
+    },
+    {
+        "title": "Great Day at Work",
+        "content": "I got a big promotion today! Feeling grateful for my great team!",
+        "public": true,
+        "user_id": 1
+    },
+    {
+        "title": "A Big Surprise",
+        "content": "Today my friends threw me a surprise party for my birthday. So grateful for such awesome friends!",
+        "public": true,
+        "user_id": 1
+    },
+    {
+        "title": "Fun at the Beach",
+        "content": "I went to the beach today, and it was so nice to lay relaxing in the sand!",
+        "public": true,
+        "user_id": 1
+    },
+    {
+        "title": "Healthy!",
+        "content": "Today I'm feeling so grateful for my good health.",
+        "public": true,
+        "user_id": 1
     }
 ]
