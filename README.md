@@ -1,4 +1,4 @@
-                                Welcome to The Happy Place :)
+#                   Welcome to The Happy Place :)
 
 
 ![The Happy Place Readme Opening Imagery](https://www.livehappy.com/wp-content/uploads/2018/02/happy.jpg)
@@ -11,7 +11,7 @@
 
 
 
-#            Who is **The Happy Place :)** Made for Anyways?
+##                  Who is **The Happy Place :)** Made for Anyways?
 
 
 ![The Happy Place](https://www.livehappy.com/wp-content/uploads/2018/02/happy.jpg)
@@ -36,7 +36,7 @@
 
 
 
-##                  Technologies and Development:
+###                  Technologies and Development:
 
 **Built With:**
 
@@ -94,7 +94,12 @@
 
 
 
-                    **Development Staff:**
+
+
+####                    Development Staff:
+
+
+
 
 This project is developed by *groupFive*
 
@@ -113,7 +118,7 @@ This project is developed by *groupFive*
 
 
 
-###                 Wanna Try?
+#####                   Wanna Try?
 
 
 ![The Happy Place](https://www.livehappy.com/wp-content/uploads/2018/02/happy.jpg)
