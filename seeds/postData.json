@@ -1,0 +1,32 @@
+[
+    {
+        "title": "Hello, HappyPlace!",
+        "content": "As my first post, I want to say how grateful I am to have this app. Reminding me to think about what I'm grateful for is making me happier already!",
+        "public": true,
+        "user_id": 1
+    },
+    {
+        "title": "My Amazing Day",
+        "content": "Today I'm feeling so grateful for my granddaughter, who made me a beautiful painting in her school art class.",
+        "public": true,
+        "user_id": 2
+    },
+    {
+        "title": "A Perfect Morning",
+        "content": "I woke up early today and saw the sunrise. The beautiful colors in the sky were such a great start to the day!",
+        "public": true,
+        "user_id": 3
+    },
+    {
+        "title": "Grateful for My Neighbor",
+        "content": "Today my neighbors brought me a delicious homemade cherry pie because they heard I was feeling sick. So grateful for kind people!",
+        "public": true,
+        "user_id": 1
+    },
+    {
+        "title": "I Love My Cat",
+        "content": "My cat was making the cutest purring sounds and it reminded me how grateful I am for my fluffy friend.",
+        "public": false,
+        "user_id": 2
+    }
+]
