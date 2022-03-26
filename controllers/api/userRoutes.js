@@ -4,7 +4,7 @@ const { User } = require('../../models');
 router.post('/login', async (req, res) => {
   try {
     // Find the user who matches the provided username
-    const userData = await User.findOne({ where: { username: req.body.username } });
+    const userData = await User.findOne({ where: { username: req.body.name } });
 
     if (!userData) {
       res.status(400).json({ message: 'Incorrect username or password, please try again' });
@@ -22,7 +22,7 @@ router.post('/login', async (req, res) => {
     // Create session variables based on the logged in user
     req.session.save(() => {
       req.session.user_id = userData.id;
-      req.session.username = userData.username;
+      req.session.username = userData.name;
       req.session.logged_in = true;
       
       res.json({ user: userData, message: 'You are now logged in!' });
@@ -46,7 +46,7 @@ router.post('/signup', async (req, res) => {
     // Create session variables based on the logged in user
     req.session.save(() => {
       req.session.user_id = userData.id;
-      req.session.username = userData.username;
+      req.session.username = userData.name;
       req.session.logged_in = true;
       
       res.status(200).json({ user: userData, message: 'New user created. You are now logged in!' });
