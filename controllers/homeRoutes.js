@@ -3,18 +3,14 @@ const { Post, User } = require('../models');
 const withAuth = require('../utils/auth');
 
 // Render the home feed page for all users whether logged in or not
-router.get('/:id', async (req, res) => {
-    let pageNumber = 0;
-    if(req.params.id) {
-        pageNumber = req.params.id * 20;
-    }
+router.get('/', async (req, res) => {
    try {
     const postData = await Post.findAll({
       include: [
         {
           model: User,
           attributes: [
-            'username'
+            'name'
           ]
         }
       ],
@@ -24,19 +20,58 @@ router.get('/:id', async (req, res) => {
       order: [
         ['created_at', 'DESC']
       ],
-      offset: pageNumber,
-      limit: 20
+      limit: 5
     });
 
     const posts = postData.map((post) => post.get({ plain: true }));
-    res.status(200).render('homepage', {
-      posts,
-      // Pass the logged in flag to the template
-      logged_in: req.session.logged_in,
-      username: req.session.username
+    res.status(200).json(posts);
+    // render('homepage', {
+    //   posts,
+    //   // Pass the logged in flag to the template
+    //   logged_in: req.session.logged_in,
+    //   username: req.session.username
+    // });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ message: `${error}` });
+  }
+});
+
+// Render the home feed with a page number for pagination for all users whether logged in or not
+router.get('/:page', async (req, res) => {
+    const limitPerPage = 5;
+
+   try {
+    const postData = await Post.findAll({
+      include: [
+        {
+          model: User,
+          attributes: [
+            'name'
+          ]
+        }
+      ],
+      where: {
+        public: true
+      },
+      order: [
+        ['created_at', 'DESC']
+      ],
+      offset: (req.params.page - 1) * limitPerPage,
+      limit: limitPerPage
     });
-  } catch (err) {
-    res.status(500).json(err);
+
+    const posts = postData.map((post) => post.get({ plain: true }));
+    res.status(200).json(posts);
+    // render('homepage', {
+    //   posts,
+    //   // Pass the logged in flag to the template
+    //   logged_in: req.session.logged_in,
+    //   username: req.session.username
+    // });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ message: `${error}` });
   }
 });
 
