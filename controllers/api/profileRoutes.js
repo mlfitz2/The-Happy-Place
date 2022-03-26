@@ -29,8 +29,9 @@ router.get('/:user', async (req, res) => {
             res.status(400).json({ message: 'No such user exists.'});
             return;
         }
-
-        res.status(200).json(userData);
+        const user = userData.get({ plain: true });
+        
+        res.status(200).json(user);
 
     } catch (error) {
         console.log(error);
