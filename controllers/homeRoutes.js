@@ -24,13 +24,12 @@ router.get('/', async (req, res) => {
     });
 
     const posts = postData.map((post) => post.get({ plain: true }));
-    res.status(200).json(posts);
-    // render('homepage', {
-    //   posts,
-    //   // Pass the logged in flag to the template
-    //   logged_in: req.session.logged_in,
-    //   username: req.session.username
-    // });
+    res.status(200).render('homepage', {
+      posts,
+      // Pass the logged in flag to the template
+      logged_in: req.session.logged_in,
+      username: req.session.username
+    });
   } catch (error) {
     console.log(error);
     res.status(500).json({ message: `${error}` });
@@ -75,13 +74,12 @@ router.get('/:page', async (req, res) => {
     });
 
     const posts = postData.map((post) => post.get({ plain: true }));
-    res.status(200).json(posts);
-    // render('homepage', {
-    //   posts,
-    //   // Pass the logged in flag to the template
-    //   logged_in: req.session.logged_in,
-    //   username: req.session.username
-    // });
+    res.status(200).render('homepage', {
+      posts,
+      // Pass the logged in flag to the template
+      logged_in: req.session.logged_in,
+      username: req.session.username
+    });
   } catch (error) {
     console.log(error);
     res.status(500).json({ message: `${error}` });
