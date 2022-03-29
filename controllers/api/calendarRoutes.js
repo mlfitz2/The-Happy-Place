@@ -1,13 +1,13 @@
 const router = require('express').Router();
-const { Post, User } = require('../models');
+const { Post, User } = require('../../models');
 const withAuth = require('../../utils/auth');
 const { dayStart, dayEnd } = require('../../utils/dates');
+const { Op } = require('sequelize');
 
 // Pull back all public posts for a specific date
 router.get('/:date', async (req, res) => {
     const startDate = dayStart(req.params.date);
     const endDate = dayEnd(req.params.date);
-   
     try {
     const postData = await Post.findAll({
       include: [
@@ -43,3 +43,5 @@ router.get('/:date', async (req, res) => {
     res.status(500).json({ message: `${error}` });
   }
 });
+
+module.exports = router;

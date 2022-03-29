@@ -14,7 +14,6 @@ router.post('/', async (req, res) => {
             public: req.body.public,
             user_id: 3//req.session.user_id
         });
-        console.log(newPost);
         res.status(200).json({ message: `New post created`});
         // add in res.render for handlebars
     } catch (error) {
