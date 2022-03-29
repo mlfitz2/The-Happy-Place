@@ -37,6 +37,19 @@ router.get('/', async (req, res) => {
   }
 });
 
+router.get('/login', (req, res) => {
+  // If a session exists, redirect the request to the homepage
+  if (req.session.logged_in) {
+    res.redirect('/');
+    return;
+  }
+
+  res.render('login');
+});
+
+module.exports = router;
+
+// URL variable routes must be defined after specific routes of the samel HTTP method to avoid a specific route being treated as a URL modified one
 // Render the home feed with a page number for pagination for all users whether logged in or not
 router.get('/:page', async (req, res) => {
     const limitPerPage = 5;
@@ -75,14 +88,4 @@ router.get('/:page', async (req, res) => {
   }
 });
 
-router.get('/login', (req, res) => {
-  // If a session exists, redirect the request to the homepage
-  if (req.session.logged_in) {
-    res.redirect('/');
-    return;
-  }
 
-  res.render('login');
-});
-
-module.exports = router;

@@ -1,18 +1,36 @@
-<div class="d-flex justify-content-center m-4">
+<section class="d-flex justify-content-center m-4">
     <div class="card text-center col-4">
-        <h2 class="card-header">LOG-IN</h2>
+        <h2 class="card-header">LOGIN</h2>
         <form id="loginForm">
             <div class="form-group">
                 <label>Username</label>
-                <input id="userName" type="text" class="form-control" placeholder="Enter Username">
+                <input id="userName-login" type="text" class="form-control" required aria-required="true" minlength="2">
             </div>
             <div class="form-group">
                 <label>Password</label>
-                <input id="password" type="password" class="form-control" placeholder="Enter password">
+                <input id="password-login" type="password" class="form-control" required aria-required="true" minlength="8">
             </div>
-            <button type="submit" class="btn btn-primary">SUBMIT</button>
-            <a class="nav-link" href="/signup">SIGN-UP LINK</a>
+            <p class="error" style="display: none;">❌ Incorrect username or password. Please try again.</p>
+            <button type="submit" class="btn btn-primary">Login</button>
         </form> 
     </div>
-</div>
+    <div class="card text-center col-4">
+        <h2 class="card-header">SIGN UP</h2>
+        <form id="signUpForm">
+            <div class="form-group">
+                <label>Username</label>
+                <input id="userName-signup" type="text" class="form-control" required aria-required="true" minlength="2">
+            </div>
+            <div class="form-group">
+                <label>Email</label>
+                <input id="email-signup" type="email" class="form-control" required aria-required="true" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+            </div>
+            <div class="form-group">
+                <label>Password</label>
+                <input id="password-signup" type="password" class="form-control" required aria-required="true" minlength="8">
+            </div>
+            <button type="submit" class="btn btn-primary">Sign Up</button>
+        </form> 
+    </div>
+</section>
 <script src="./js/login.js"></script>
