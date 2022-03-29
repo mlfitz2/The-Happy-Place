@@ -39,4 +39,31 @@ router.get('/:user', async (req, res) => {
     }
 });
 
+// update an existing user record on email and bio
+router.put('/:user', async (req, res) => {
+    try{
+        const userData = await User.update(
+            {
+                email: req.body.email,
+                bio: req.body.bio
+            },
+            {
+                where: {
+                    name: req.params.user
+                }
+            }
+        );
+        if(!userData[0]) {
+            res.status(404).json({message: 'No user with this username exists.'});
+            return;
+          }
+            res.status(200).json({ message: `User updated` });
+    }
+    catch (error) {
+        console.log(error);
+        res.status(500).json({ message: `${error}`});
+    }
+});
+
+
 module.exports = router;

@@ -4,7 +4,7 @@ const { User } = require('../../models');
 router.post('/login', async (req, res) => {
   try {
     // Find the user who matches the provided username
-    const userData = await User.findOne({ where: { username: req.body.name } });
+    const userData = await User.findOne({ where: { name: req.body.username } });
 
     if (!userData) {
       res.status(400).json({ message: 'Incorrect username or password, please try again' });
@@ -38,7 +38,7 @@ router.post('/signup', async (req, res) => {
   try {
     // create a new user
     const userData = await User.create({
-      username: req.body.username,
+      name: req.body.username,
       email: req.body.email,
       password: req.body.password
     });
