@@ -5,14 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/style.css">
-    <title>techBlog</title>
+    <title>The Happy Place</title>
 </head>
 <body>
 
     <header>
         <nav class="navbar bg-dark">
             <a class="nav-link" href="/">Home</a>
-            <a class="nav-link" href="#">Dashboard</a>
+            <a class="nav-link" href="#">Profile</a>
             {{#if logged_in}}
             <a class="nav-link" id="logout" href="/">Logout</a>
             {{else}}
@@ -24,6 +24,11 @@
     <h1 class="text-center m-2">The Happy Place</h1>
 
     <main>
+    {{#if logged_in}}
+      <p class="username">
+        Logged in as <strong>{{username}}</strong>
+      </p>
+    {{/if}}
         {{{ body }}}
     </main>
 

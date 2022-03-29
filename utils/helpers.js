@@ -5,5 +5,13 @@ module.exports = {
       return `${new Date(date).getMonth() + 1}/${new Date(date).getDate()}/${
         new Date(date).getFullYear()}`;
     },
+    // determines if a post has been edited by comparing updated and created dates
+    is_edited: (post) => {
+      if (JSON.stringify(post.createdAt) === JSON.stringify(post.updatedAt)) {
+        return false 
+      } else {
+        return true
+      }
+    }
   };
   
