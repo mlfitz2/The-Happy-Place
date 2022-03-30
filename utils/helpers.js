@@ -12,6 +12,9 @@ module.exports = {
       } else {
         return true
       }
+    },
+    prevDay: (unix) => {
+      return unix - 86400;
     }
   };
   
