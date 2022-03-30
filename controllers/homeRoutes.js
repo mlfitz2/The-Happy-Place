@@ -20,7 +20,7 @@ router.get('/', async (req, res) => {
       order: [
         ['created_at', 'DESC']
       ],
-      limit: 5
+      // limit: 5
     });
 
     const posts = postData.map((post) => post.get({ plain: true }));
