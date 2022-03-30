@@ -10,7 +10,7 @@ router.post('/', withAuth, async (req, res) => {
             title: req.body.title,
             content: req.body.content,
             public: req.body.public,
-            user_id: 1//req.session.user_id
+            user_id: req.session.user_id
         });
         res.status(200).json({ message: `New post created`});
         // add in res.render for handlebars
