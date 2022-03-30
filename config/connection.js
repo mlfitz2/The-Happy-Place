@@ -4,7 +4,14 @@ require('dotenv').config();
 let sequelize;
 
 if (process.env.JAWSDB_URL) {
-  sequelize = new Sequelize(process.env.JAWSDB_URL);
+  sequelize = new Sequelize(process.env.JAWSDB_URL, {
+    dialectOptions: {
+      useUTC: false,
+      dateStrings: true,
+      typeCast: true
+    },
+    timezone: '-07:00'
+  });
 } else {
   sequelize = new Sequelize(
     process.env.DB_NAME,
