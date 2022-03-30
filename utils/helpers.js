@@ -15,6 +15,9 @@ module.exports = {
     },
     prevDay: (unix) => {
       return unix - 86400;
-    }
+    },
+    nextDay: (unix) => {
+      return unix + 86400;
+    },
   };
   
