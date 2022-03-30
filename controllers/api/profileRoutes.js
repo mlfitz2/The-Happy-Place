@@ -5,33 +5,59 @@ const { User, Post } = require('../../models');
 
 router.get('/:user', async (req, res) => {
     try {
-
+        let ownProfile = false;
         let data =  {
             model: Post, 
-            where: { public: true }
+            where: { public: true },
+            as: 'posts'
         }
 
-        if ( req.params.user.toLowerCase() === req.session.username.toLowerCase()) {
-            //Below: for testing purposes
-            // if ( req.params.user.toLowerCase() === 'john') {
-            data = {
-                model: Post
+        // if (req.session.username) {
+        //     if (req.params.user.toLowerCase() === req.session.username.toLowerCase()) {
+        //Below: for testing purposes
+        if ( req.params.user.toLowerCase() === 'sally') {
+   
+                data = {
+                    model: Post,
+                    as: 'posts'
+                };
+                ownProfile = true;
             }
-        }
+        // }
 
         const userData = await User.findOne({ where: { name: req.params.user }, 
             include: [
                 data
-            ] 
+            ],            
+            order: [
+                ['posts', 'createdAt', 'DESC']
+            ]
         });
 
         if (!userData) {
             res.status(400).json({ message: 'No such user exists.'});
             return;
         }
-        const user = userData.get({ plain: true });
         
-        res.status(200).json(user);
+        const user = await userData.get({ plain: true });
+        
+        if (ownProfile) {
+            console.log(user);
+            res.status(200).render('myprofile', {
+                user,
+                // Pass the logged in flag to the template
+                logged_in: req.session.logged_in,
+                username: req.session.username,
+            });
+        } else { 
+            console.log(user);
+            res.status(200).render('profile', {
+                user,
+                // Pass the logged in flag to the template
+                logged_in: req.session.logged_in,
+                username: req.session.username,
+            });
+        }
 
     } catch (error) {
         console.log(error);

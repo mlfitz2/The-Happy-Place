@@ -1,0 +1,41 @@
+{{!-- Profile info --}}
+<aside>
+    <h1>
+        {{user.name}}
+    </h1>
+    <p>
+        {{user.bio}}
+    </p>
+    <a href="mailto:{{user.email}}">{{user.email}}</a>
+</aside>
+{{!-- User posts --}}
+<section>
+    <h2>
+        Posts by <strong>{{user.name}}</strong>
+    </h2>
+    {{#each user.posts as |post|}}
+        <article>
+                <div class="post-header">
+                    <h2 data-postId="{{post.id}}">
+                        {{post.title}}
+                    </h2>
+                </div>
+                <p class="post-body" data-id="{{post.id}}">
+                    {{post.content}}
+                </p>
+                <div class="post-footer" >
+                    {{!-- add in edited flag if edited --}}
+                    {{#if (is_edited post)}}
+                         <p>
+                             <em>Edited</em>
+                        </p>
+                    {{/if}}
+                    <p>
+                        Posted on <strong>{{format_date post.createdAt}}</strong>
+                    </p>
+                </div>
+        </article>
+    {{/each}}
+</section>
+
+<script></script>
