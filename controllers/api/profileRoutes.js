@@ -1,9 +1,13 @@
 const router = require('express').Router();
-const { request } = require('express');
 const { User, Post } = require('../../models');
-// const withAuth = require('../../utils/auth');
+const withAuth = require('../../utils/auth');
 
-router.get('/:user', async (req, res) => {
+router.get('/', withAuth, (req, res) => {
+    res.redirect(`/api/profile/${req.session.username}`);
+}); 
+
+
+router.get('/:user', withAuth, async (req, res) => {
     try {
         let ownProfile = false;
         let data =  {
@@ -12,10 +16,10 @@ router.get('/:user', async (req, res) => {
             as: 'posts'
         }
 
-        // if (req.session.username) {
-        //     if (req.params.user.toLowerCase() === req.session.username.toLowerCase()) {
+        if (req.session.username) {
+            if (req.params.user.toLowerCase() === req.session.username.toLowerCase()) {
         //Below: for testing purposes
-        if ( req.params.user.toLowerCase() === 'sally') {
+        // if ( req.params.user.toLowerCase() === 'sally') {
    
                 data = {
                     model: Post,
@@ -23,7 +27,7 @@ router.get('/:user', async (req, res) => {
                 };
                 ownProfile = true;
             }
-        // }
+        }
 
         const userData = await User.findOne({ where: { name: req.params.user }, 
             include: [
@@ -66,7 +70,7 @@ router.get('/:user', async (req, res) => {
 });
 
 // update an existing user record on email and bio
-router.put('/:user', async (req, res) => {
+router.put('/:user', withAuth, async (req, res) => {
     try{
         const userData = await User.update(
             {

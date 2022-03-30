@@ -13,6 +13,9 @@
     <h2>
         Posts by <strong>{{user.name}}</strong>
     </h2>
+    <p>
+        {{user,name}} has {{user.posts.length}} total posts.
+    </p>
     {{#each user.posts as |post|}}
         <article>
                 <div class="post-header">

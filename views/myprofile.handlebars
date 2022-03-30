@@ -9,6 +9,7 @@
         {{else}}
             Click here to add a bio...
         {{/if}}
+        <button class="btn-primary" id="bio-btn">Update Bio</button>
     </p>
     <a href="mailto:{{user.email}}">{{user.email}}</a>
 </aside>
@@ -41,6 +42,9 @@
     </h2>
     <p>
         You can modify existing posts by clicking into and editing the title, content or public option directly and clicking the Update button.
+    </p>
+    <p>
+        You have {{user.posts.length}} total posts.
     </p>
     {{#each user.posts as |post|}}
         <article>
