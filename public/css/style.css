@@ -1,7 +1,9 @@
 body {
     font-family: Arial;
     padding: 20px;
-    background: #f1f1f1;
+    background: #1488cc;
+    background: -webkit-linear-gradient(to right, #2b32b2, #1488cc);
+    background: linear-gradient(to right,#2b32b2,#1488cc);
   }
   
   .header {
@@ -9,6 +11,13 @@ body {
     font-size: 40px;
     text-align: center;
     background: white;
+  }
+  
+  h1 {
+    margin: 0 0 1rem 0;
+    font-size: 2.5rem;
+    letter-spacing: 0.5px;
+    color: #333;
   }
   
   .leftcolumn {
@@ -22,10 +31,16 @@ body {
     padding-left: 20px;
   }
   
-  .card {
-    background-color: white;
-    padding: 20px;
-    margin-top: 20px;
+  .post {
+    position: relative;
+    padding: 6rem 3rem 6rem 6rem;
+    background: #fff;
+    max-width: 400px;
+    border-radius: 10px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 1px 1px 2rem rgba(0, 0, 0, 0.3);
   }
   
   .row:after {
@@ -37,7 +52,7 @@ body {
   .footer {
     padding: 20px;
     text-align: center;
-    background: #ddd;
+    background: white;
     margin-top: 20px;
   }
 
@@ -46,4 +61,32 @@ body {
       width: 100%;
       padding: 0;
     }
+
+    header {
+          flex-flow: row;
+          justify-content: space-between;
+          padding: 20px;
+      }
+  
+    section {
+          margin: 4rem;
+      }
+  
+    .username {
+          padding: 1rem 4rem 0 0;
+          text-align: right;
+      }
+
+    .login-signup {
+          flex-flow: row nowrap;
+          align-items: flex-start;
+      }
+  
+    .login-form,
+    .signup-form {
+          flex: 1 0 30%;
+          padding: 20px;
+          border-top: none;
+          border-left: solid 1px var(--white);
+      }
   }
