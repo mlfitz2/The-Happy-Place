@@ -82,11 +82,12 @@ document.querySelectorAll('.post-delete').forEach(function(btn) {
 
 // update a user
 const updateUser = async (event) => {
+  console.log(event.target)
   event.preventDefault();
 
-  const bio = document.getElementById(`bio-btn`).textContent;
-      
-  const response = await fetch(`/api/profile/${req.session.username}`, {
+  const bio = document.getElementById(`bio-body`).textContent;
+  
+  const response = await fetch(`/api/profile/${event.target.dataset.user}`, {
        method: 'PUT',
        body: JSON.stringify({ bio }),
        headers: { 'Content-Type': 'application/json' }
@@ -99,4 +100,4 @@ const updateUser = async (event) => {
     };
 };
 
-document.querySelector('#bio-btn').addEventListener('click', updateUser);
+document.getElementById('bio-btn').addEventListener('click', updateUser);

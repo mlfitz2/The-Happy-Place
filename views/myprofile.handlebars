@@ -3,14 +3,14 @@
     <h1>
         {{user.name}}
     </h1>
-    <p contenteditable="true" maxlength="250">
+    <p id="bio-body" contenteditable="true" maxlength="250">
         {{#if user.bio}}
             {{user.bio}}
         {{else}}
             Click here to add a bio...
         {{/if}}
-        <button class="btn-primary" id="bio-btn">Update Bio</button>
     </p>
+    <button class="btn-primary" data-user="{{user.name}}" id="bio-btn">Update Bio</button>
     <a href="mailto:{{user.email}}">{{user.email}}</a>
 </aside>
 {{!-- add a new post --}}
