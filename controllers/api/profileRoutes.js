@@ -74,7 +74,6 @@ router.put('/:user', withAuth, async (req, res) => {
     try{
         const userData = await User.update(
             {
-                email: req.body.email,
                 bio: req.body.bio
             },
             {
