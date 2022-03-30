@@ -1,9 +1,21 @@
 const router = require('express').Router();
 const { Post, User } = require('../models');
 const withAuth = require('../utils/auth');
+const startOfToday = require('date-fns/startOfToday');
+const endOfToday = require('date-fns/endOfToday');
+const getUnixTime = require('date-fns/getUnixTime')
+const { daySimple } = require('../utils/dates');
+const { Op } = require('sequelize');
 
 // Render the home feed page for all users whether logged in or not
+// homepage defaults to today
 router.get('/', async (req, res) => {
+
+  const startDate = startOfToday();
+  const endDate = endOfToday();
+  const todayString = daySimple(JSON.stringify(startDate));
+  const todayUnix = getUnixTime(startDate);
+
    try {
     const postData = await Post.findAll({
       include: [
@@ -15,17 +27,21 @@ router.get('/', async (req, res) => {
         }
       ],
       where: {
-        public: true
+          public: true,
+          created_at: {
+            [Op.between]: [startDate, endDate]
+        }
       },
       order: [
         ['created_at', 'DESC']
       ],
-      // limit: 5
     });
 
     const posts = postData.map((post) => post.get({ plain: true }));
     res.status(200).render('homepage', {
       posts,
+      today: todayString,
+      todayUnix,
       // Pass the logged in flag to the template
       logged_in: req.session.logged_in,
       username: req.session.username
