@@ -22,6 +22,8 @@
     </header>
 
     <h1 class="text-center m-2">The Happy Place</h1>
+    <h2 class="text-center m-2 font-italic">"<span id="quote"></span>"</h2>
+    <h2 class="text-center m-2 font-italic"><span id="author"></span></h2>
 
     <main>
     {{#if logged_in}}
@@ -32,8 +34,11 @@
         {{{ body }}}
     </main>
 
+
     {{#if logged_in}}
     <script src="/js/logout.js"></script>
     {{/if}}
+    <script src="./js/displayquote.js"></script>
+    <script src="./js/quotes.js"></script>
 </body>
 </html>
