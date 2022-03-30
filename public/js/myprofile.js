@@ -78,3 +78,25 @@ const deletePost = async (event) => {
 document.querySelectorAll('.post-delete').forEach(function(btn) {
     btn.addEventListener('click', deletePost)
     });
+
+
+// update a user
+const updateUser = async (event) => {
+  event.preventDefault();
+
+  const bio = document.getElementById(`bio-btn`).textContent;
+      
+  const response = await fetch(`/api/profile/${req.session.username}`, {
+       method: 'PUT',
+       body: JSON.stringify({ bio }),
+       headers: { 'Content-Type': 'application/json' }
+     });
+    
+    if (response.ok) {
+      document.location.reload();
+    } else {
+      alert('Profile could not be updated, please try again');
+    };
+};
+
+document.querySelector('#bio-btn').addEventListener('click', updateUser);
