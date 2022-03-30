@@ -1,9 +1,7 @@
 const router = require('express').Router();
 const { Post, User } = require('../models');
 const withAuth = require('../utils/auth');
-const startOfToday = require('date-fns/startOfToday');
-const endOfToday = require('date-fns/endOfToday');
-const getUnixTime = require('date-fns/getUnixTime')
+const { startOfToday, endOfToday, startOfDay, endOfDay, getUnixTime, fromUnixTime } = require('date-fns');
 const { daySimple } = require('../utils/dates');
 const { Op } = require('sequelize');
 
@@ -64,10 +62,21 @@ router.get('/login', (req, res) => {
 
 module.exports = router;
 
-// URL variable routes must be defined after specific routes of the samel HTTP method to avoid a specific route being treated as a URL modified one
-// Render the home feed with a page number for pagination for all users whether logged in or not
-router.get('/:page', async (req, res) => {
-    const limitPerPage = 5;
+
+// Adjust the homepage feed based on date selected
+router.get('/:date', async (req, res) => {
+
+  const date = fromUnixTime(req.params.date);
+  const today = startOfToday();
+  const startDate = startOfDay(date);
+  const endDate = endOfDay(date);
+  const dayString = daySimple(JSON.stringify(startDate));
+  const dayUnix = getUnixTime(startDate);
+
+  if (JSON.stringify(startDate) === JSON.stringify(today)) {
+    res.redirect('/');
+    return
+  }
 
    try {
     const postData = await Post.findAll({
@@ -80,18 +89,21 @@ router.get('/:page', async (req, res) => {
         }
       ],
       where: {
-        public: true
+          public: true,
+          created_at: {
+            [Op.between]: [startDate, endDate]
+        }
       },
       order: [
         ['created_at', 'DESC']
       ],
-      offset: (req.params.page - 1) * limitPerPage,
-      limit: limitPerPage
     });
 
     const posts = postData.map((post) => post.get({ plain: true }));
-    res.status(200).render('homepage', {
+    res.status(200).render('archive', {
       posts,
+      day: dayString,
+      dayUnix,
       // Pass the logged in flag to the template
       logged_in: req.session.logged_in,
       username: req.session.username
@@ -101,5 +113,3 @@ router.get('/:page', async (req, res) => {
     res.status(500).json({ message: `${error}` });
   }
 });
-
-
