@@ -6,6 +6,12 @@
 </div>
 
 <section class="d-flex flex-wrap flex-row justify-content-center">
+  <a href="/{{prevDay todayUnix}}"><</a>
+  <h2 data-date="{{todayUnix}}">{{today}}</h2>
+    {{#unless posts}}
+      <p>Be the first to post something that made you happy today...</p>
+    {{/unless}}
+
     {{#each posts as |post| }}
       <article class="post-card">
         <div class="post-header text-center">
