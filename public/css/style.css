@@ -84,7 +84,13 @@
     color: lightgreen;
   }
 
-  .user-link:hover {
+  .email-link {
+    color: darkgreen;
+    font-weight: bold;
+  }
+
+  .user-link:hover,
+  .email-link:hover {
     color: white;
   }
 
@@ -150,11 +156,17 @@
 
   h2 {
     font-weight: bolder;
-    margin-bottom: 1rem;
+    margin: 0;
   }
 
   p {
     font-size: 130%;
+  }
+
+  aside {
+    padding-right: 1rem;
+    border-right: solid 1px darkolivegreen;
+    margin-right: 2rem;
   }
 
   .leftcolumn {
@@ -207,9 +219,6 @@
   }
 
   .post-footer {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: center;
     gap: 2rem;
     font-size: 90%;
   }
@@ -276,7 +285,13 @@
       border-left: none;
     }
 
-
+    aside {
+      padding-bottom: 1rem;
+      border-right: none;
+      border-bottom: solid 1px darkolivegreen;
+      margin-bottom: 3rem;
+      margin-right: 0;
+    }
 
   }
 

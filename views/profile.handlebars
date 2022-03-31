@@ -1,44 +1,50 @@
 {{!-- Profile info --}}
-<aside>
-    <h1>
-        {{user.name}}
-    </h1>
-    <p>
-        {{user.bio}}
-    </p>
-    <a href="mailto:{{user.email}}">{{user.email}}</a>
-</aside>
-{{!-- User posts --}}
-<section>
-    <h2>
-        Posts by <strong>{{user.name}}</strong>
-    </h2>
-    <p>
-        {{user.name}} has {{user.posts.length}} total posts.
-    </p>
-    {{#each user.posts as |post|}}
-        <article>
-                <div class="post-header">
-                    <h2 data-postId="{{post.id}}">
-                        {{post.title}}
-                    </h2>
-                </div>
-                <p class="post-body" data-id="{{post.id}}">
-                    {{post.content}}
-                </p>
-                <div class="post-footer" >
-                    {{!-- add in edited flag if edited --}}
-                    {{#if (is_edited post)}}
-                         <p>
-                             <em>Edited</em>
-                        </p>
-                    {{/if}}
-                    <p>
-                        Posted on <strong>{{format_date post.createdAt}}</strong>
+<div class="d-flex flex-wrap flex-row mt-5">
+    <aside class="col-xs-12 col-md-5 col-lg-3">
+        <h1>
+            <strong>{{user.name}}</strong>
+        </h1>
+        <p>
+            {{user.bio}}
+        </p>
+        <a class="email-link" href="mailto:{{user.email}}">{{user.email}}</a>
+    </aside>
+    {{!-- User posts --}}
+    <section class="col-xs-12 col-md-6 col-lg-8">
+        <h2>
+            Posts by <strong>{{user.name}}</strong>
+        </h2>
+        <p>
+            {{user.name}} has {{user.posts.length}} total public posts.
+        </p>
+        <br>
+        <hr>
+        {{#each user.posts as |post|}}
+            <article>
+                    <div class="post-header">
+                        <h3 data-postId="{{post.id}}">
+                            <strong>{{post.title}}</strong>
+                        </h3>
+                    </div>
+                    <p class="post-body" data-id="{{post.id}}">
+                        {{post.content}}
                     </p>
-                </div>
-        </article>
-    {{/each}}
-</section>
+                    <div class="post-footer d-flex flex-row-reverse" >
+                        {{!-- add in edited flag if edited --}}
+                        {{#if (is_edited post)}}
+                            <p>
+                                <em>Edited</em>
+                            </p>
+                        {{/if}}
+                        <p>
+                            Posted on <strong>{{format_date post.createdAt}}</strong>
+                        </p>
+                    </div>
+                    <hr>
+                    <br>
+            </article>
+        {{/each}}
+    </section>
+</div>
 
 <script></script>
