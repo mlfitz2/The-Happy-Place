@@ -6,12 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tangerine:wght@700&display=swap" rel="stylesheet">
     <title>The Happy Place</title>
 </head>
 <body>
 
     <header>
-        <nav class="navbar bg-dark">
+        <nav class="navbar bg-dark rounded">
             <a class="nav-link" href="/">Home</a>
             <a class="nav-link" href="/api/profile">My Profile</a>
             {{#if logged_in}}
@@ -25,9 +28,9 @@
         </nav>
     </header>
 
-    <h1 class="text-center m-2">The Happy Place</h1>
-    <h2 class="text-center m-2 font-italic">"<span id="quote"></span>"</h2>
-    <h2 class="text-center m-2 font-italic"><span id="author"></span></h2>
+    <h1 class="text-center m-2" id="header">The Happy Place</h1>
+    <h4 class="text-center m-2 font-italic">"<span id="quote"></span>"</h4>
+    <h4 class="text-center m-2 font-italic"><span id="author"></span></h4>
 
     <main>
     {{#if logged_in}}

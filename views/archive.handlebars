@@ -1,7 +1,12 @@
-<section>
-  <a href="/{{prevDay dayUnix}}"><</a>
-  <h2 data-date="{{dayUnix}}">{{day}}</h2>
-  <a href="/{{nextDay dayUnix}}">></a>
+<div class="d-flex justify-content-center">
+<div class="date-nav rounded d-flex justify-content-center align-items-center">
+  <a class="date-nav-btn rounded-pill" href="/{{prevDay dayUnix}}"><</a>
+  <h2 class="rounded-pill" data-date="{{dayUnix}}">{{day}}</h2>
+  <a class="date-nav-btn rounded-pill" href="/{{nextDay dayUnix}}">></a>
+</div>
+</div>
+
+<section class="post-card d-flex flex-row">
     {{#unless posts}}
       <p>No posts were made on this date</p>
     {{/unless}}
