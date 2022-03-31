@@ -10,35 +10,41 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Tangerine:wght@700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/64c90fc5f5.js" crossorigin="anonymous"></script>
     <title>The Happy Place</title>
 </head>
 <body>
 
     <header>
-        <nav class="navbar bg-dark rounded">
-            <a class="nav-link" href="/">Home</a>
-            <a class="nav-link" href="/api/profile">My Profile</a>
-            {{#if logged_in}}
-            <a class="nav-link" id="logout" href="/">Logout</a>
-            <!-- Trigger/Open The Modal -->
-            <button id="modal-btn">New Post</button>
-            {{else}}
-            <a class="nav-link" href="/login">Login</a>
-            {{/if}}
-
+        <div class="logo-container">
+            <i class="logo fa-solid fa-face-smile"></i>
+        </div>
+        <nav class="menu hidden">
+            <ul>
+                <li><a href="/" class="menu-link">Home</a></li>
+                <li><a href="/api/profile" class="menu-link">Profile</a></li>
+                {{#if logged_in}}
+                <!-- Trigger/Open The Modal -->
+                <li><button class="button-link" id="modal-btn">New Post</button></li>
+                <br/>
+                <li class="username">Logged in as <strong>{{username}}</strong></li>
+                <li><a class="menu-link" href="/" id="logout">Logout</a></li>
+                {{else}}
+                <li><a class="button-link" href="/login">Login</a></li>
+                {{/if}}
+            </ul>
         </nav>
+        <a href="javascript:void(0);" class="icon">
+            <i class="menu fa-solid fa-bars fa-2xl" id="menu-mobile"></i>
+            <i class="menu fa-solid fa-xmark fa-2xl hidden" id="menu-mobile-close"></i>
+        </a>
     </header>
 
-    <h1 class="text-center m-2" id="header">The Happy Place</h1>
+    <h1 class="text-center m-2" id="heading">The Happy Place</h1>
     <h4 class="text-center m-2 font-italic">"<span id="quote"></span>"</h4>
     <h4 class="text-center m-2 font-italic"><span id="author"></span></h4>
 
     <main>
-    {{#if logged_in}}
-      <p class="username">
-        Logged in as <strong>{{username}}</strong>
-      </p>
-    {{/if}}
         {{{ body }}}
     </main>
 
@@ -84,5 +90,6 @@
     <script src="/js/newPostModal.js"></script>
     <script src="/js/displayquote.js"></script>
     <script src="/js/quotes.js"></script>
+    <script src="/js/navMenu.js"></script>
 </body>
 </html>
