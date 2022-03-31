@@ -9,8 +9,11 @@ const { Op } = require('sequelize');
 // homepage defaults to today
 router.get('/', async (req, res) => {
 
+  // pull in start and end date for today. Will default to pacfici start time in GMT, but be converted correctly becasuse of timezone offset in connection.js file
   const startDate = startOfToday();
   const endDate = endOfToday();
+
+  // convert to simple date string to render to page and unix timestamp to populate hyperlinks correctly to previous day pages
   const todayString = daySimple(JSON.stringify(startDate));
   const todayUnix = getUnixTime(startDate);
 
@@ -66,13 +69,21 @@ module.exports = router;
 // Adjust the homepage feed based on date selected
 router.get('/:date', async (req, res) => {
 
+  // convert the unix date from the URL to a date
   const date = fromUnixTime(req.params.date);
-  const today = startOfToday();
+  
+  // get the start and end time of that date to use in the database call as the BETWEEN parameters for post.createdAt
   const startDate = startOfDay(date);
   const endDate = endOfDay(date);
+
+  // convert date to readable string for page rendering and unix stamp for hyperlink usage
   const dayString = daySimple(JSON.stringify(startDate));
   const dayUnix = getUnixTime(startDate);
 
+  // pull in today's date
+  const today = startOfToday();
+
+  // if the URL matches today's date - redirect to the home page
   if (JSON.stringify(startDate) === JSON.stringify(today)) {
     res.redirect('/');
     return
