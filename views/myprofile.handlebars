@@ -1,63 +1,69 @@
 {{!-- Profile info --}}
-<aside>
-    <h1>
-        {{user.name}}
-    </h1>
-    <p id="bio-body" contenteditable="true" maxlength="250">
-        {{#if user.bio}}
-            {{user.bio}}
-        {{else}}
-            Click here to add a bio...
-        {{/if}}
-    </p>
-    <button class="btn-primary" data-user="{{user.name}}" id="bio-btn">Update Bio</button>
-    <a href="mailto:{{user.email}}">{{user.email}}</a>
-</aside>
-{{!-- My posts --}}
-<section>
-    <h2>
-        My Posts
-    </h2>
-    <p>
-        You can modify existing posts by clicking into and editing the title, content or public option directly and clicking the Update button.
-    </p>
-    <p>
-        You have {{user.posts.length}} total posts.
-    </p>
-    {{#each user.posts as |post|}}
-        <article>
-                <div class="post-header">
-                    <h2 id="{{post.id}}-title" data-postId="{{post.id}}" contenteditable="true" required aria-required="true">
-                        {{post.title}}
-                    </h2>
-                </div>
-                <p id="{{post.id}}-body" class="post-body" contenteditable="true" data-id="{{post.id}}" maxlength="250" required aria-required="true">
-                    {{post.content}}
-                </p>
-                <form>
-                    <p>Visibility:</p>
-                    <input type="radio" id="{{post.id}}-public" name="visibility" value="true" {{#if this.public}}checked{{/if}}>
-                    <label for="public">Public</label><br>
-                    <input type="radio" id="{{post.id}}-private" name="visibility" value="false" {{#unless this.public}}checked{{/unless}}>
-                    <label for="private">Private</label><br>
-                </form>
-                <div class="post-footer" >
-                    {{!-- add in edited flag if edited --}}
-                    {{#if (is_edited post)}}
-                         <p>
-                             <em>Edited</em>
-                        </p>
-                    {{/if}}
-                    <p>
-                        Posted on <strong>{{format_date post.createdAt}}</strong>
+<div class="d-flex flex-wrap flex-row mt-5">
+    <aside class="col-xs-12 col-md-5 col-lg-3">
+        <h1>
+            <strong>{{user.name}}</strong>
+        </h1>
+        <p id="bio-body" contenteditable="true" maxlength="250">
+            {{#if user.bio}}
+                {{user.bio}}
+            {{else}}
+                Click here to add a bio...
+            {{/if}}
+        </p>
+        <button class="button-link mb-4" data-user="{{user.name}}" id="bio-btn">Update Bio</button>
+        <br>
+        <a class="email-link" href="mailto:{{user.email}}">{{user.email}}</a>
+    </aside>
+    {{!-- My posts --}}
+    <section class="col-xs-12 col-md-6 col-lg-8">
+        <h2>
+            My Posts
+        </h2>
+        <p>
+            You can modify existing posts by clicking into and editing the title, content or public option directly and clicking the Update button.
+        </p>
+        <p>
+            You have {{user.posts.length}} total posts.
+        </p>
+        <br>
+        <hr>
+        {{#each user.posts as |post|}}
+            <article>
+                    <div class="post-header">
+                        <h3 id="{{post.id}}-title" data-postId="{{post.id}}" contenteditable="true" required aria-required="true">
+                            <strong>{{post.title}}</strong>
+                        </h3>
+                    </div>
+                    <p id="{{post.id}}-body" class="post-body" contenteditable="true" data-id="{{post.id}}" maxlength="250" required aria-required="true">
+                        {{post.content}}
                     </p>
-                </div>
-                <div>
-                    <button class="btn-primary post-update" data-id="{{post.id}}">Update</button>
-                    <button class="btn-primary post-delete" data-id="{{post.id}}">Delete</button>
-                </div>
-        </article>
-    {{/each}}
-</section>
+                    <form class="">
+                        <input type="radio" id="{{post.id}}-public" name="visibility" value="true" {{#if this.public}}checked{{/if}}>
+                        <label for="public">Public</label><br>
+                        <input type="radio" id="{{post.id}}-private" name="visibility" value="false" {{#unless this.public}}checked{{/unless}}>
+                        <label for="private">Private</label><br>
+                    </form>
+                    <div class="post-footer d-flex flex-row-reverse" >
+                        {{!-- add in edited flag if edited --}}
+                        {{#if (is_edited post)}}
+                            <p>
+                                <em>Edited</em>
+                            </p>
+                        {{/if}}
+                        <p>
+                            Posted on <strong>{{format_date post.createdAt}}</strong>
+                        </p>
+                    </div>
+                    <div>
+                        <button class="button-link post-update" data-id="{{post.id}}">Update</button>
+                        <button class="button-link post-delete" data-id="{{post.id}}">Delete</button>
+                    </div>
+                    <hr>
+                    <br>
+            </article>
+        {{/each}}
+    </section>
+</div>
 
 <script src="/js/myprofile.js"></script>

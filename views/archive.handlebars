@@ -17,7 +17,7 @@
 <section class="d-flex flex-wrap flex-row justify-content-center mt-5">
     {{#each posts as |post| }}
       <article class="post-card col-12 col-md-5 col-xl-3">
-        <div class="post-header text-center">
+        <div class="post-header text-center mb-3">
           <h2 data-postId="{{post.id}}">
             {{post.title}}
           </h2>
@@ -25,7 +25,7 @@
           <p class="post-body text-center">
             {{post.content}}
           </p>
-        <div class="post-footer text-center">
+        <div class="post-footer text-center d-flex flex-row flex-wrap justify-content-center">
           {{!-- add in edited flag if edited --}}
           <p>
             Posted by <a class="user-link" href="/api/profile/{{post.user.name}}"><strong>{{post.user.name}}</strong></a> on <strong>{{format_date post.createdAt}}</strong>

@@ -1,6 +1,6 @@
 // modal functionality
 const modalControl = function(){
-    const modal = document.getElementById('instructions-modal');
+    const modal = document.getElementById('new-post-modal');
     const btn = document.getElementById('modal-btn');
     const span = document.querySelector('.modal-close');
 
