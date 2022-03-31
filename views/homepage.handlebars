@@ -5,14 +5,19 @@
         <a class="date-nav-btn rounded-pill">></a>
   </div>
 </div>
-
-<section class="d-flex flex-wrap flex-row justify-content-center">
     {{#unless posts}}
+    <section class="text-center mt-5">
       <p>Be the first to post something that made you happy today...</p>
+    </section>
+    {{else}}
+    <section class="text-center">
+      <p>{{plurals posts.length}}</p>
+    </section>
     {{/unless}}
 
+<section class="d-flex flex-wrap flex-row justify-content-center mt-5">
     {{#each posts as |post| }}
-      <article class="post-card">
+      <article class="post-card col-12 col-md-5 col-xl-3">
         <div class="post-header text-center">
           <h2 data-postId="{{post.id}}">
             {{post.title}}
@@ -23,7 +28,7 @@
           </p>
         <div class="post-footer text-center">
           <p>
-              Posted by <a href="/api/profile/{{post.user.name}}"><strong>{{post.user.name}}</strong></a>on <strong>{{format_date post.createdAt}}</strong>
+              Posted by <a class="user-link" href="/api/profile/{{post.user.name}}"><strong>{{post.user.name}}</strong></a>on <strong>{{format_date post.createdAt}}</strong>
           </p>
           {{!-- add in edited flag if edited --}}
           {{#if (is_edited post)}}
