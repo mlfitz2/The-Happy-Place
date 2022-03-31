@@ -1,7 +1,7 @@
   body {
     font-family: garamond;
     font-size: 18px;
-    background: #1488cc;
+    /* background: whitesmoke; */
     background: -webkit-linear-gradient(to right, #77ac67, #c5ecb8);
     background: linear-gradient(to right,#77ac67,#c5ecb8);
     box-sizing: border-box;
@@ -80,6 +80,14 @@
     color: lightgreen;
   }
 
+  .user-link {
+    color: lightgreen;
+  }
+
+  .user-link:hover {
+    color: white;
+  }
+
   .menu-link {
     display: block;
     width: 100%;
@@ -117,6 +125,12 @@
   .username {
     color: lightgray;
   }
+
+  main {
+    margin: 0 1rem;
+    min-height: 100vh;
+  }
+
 
   #heading {
     font-family: 'Tangerine', cursive;
@@ -180,13 +194,12 @@
   }
 
   .post-card {
-    width: 25%;
-    margin: 3%;
     background-color: #0c410a;
+    margin: 5px;
     color: #ececec;
     padding: 1%;
-    border: 5px solid #000000;
-    border-radius: 5%;
+    border: 2px solid #000000;
+    border-radius: 10px;
   }
 
   .post-body {
@@ -210,19 +223,34 @@
     display: table;
     clear: both;
   }
+
+  .login-div {
+    padding: 0 4rem 0 0;
+  }
+
+  .signup-div {
+    padding: 0 0 0 4rem;
+    border-left: solid 1px black;
+  }
+
+  .error {
+    color: darkred;
+    font-size: 100%;
+  }
   
-  .footer {
+  footer {
     padding: 20px;
     text-align: center;
-    background: white;
-    margin-top: 20px;
+    background: black;
+    color: whitesmoke;
+    margin-top: 6rem;
   }
 
   .hidden {
     display: none !important;
   }
 
-  @media screen and (max-width: 800px) {
+  @media screen and (max-width: 768px) {
     .leftcolumn, .rightcolumn {
       width: 100%;
       padding: 0;
@@ -233,25 +261,29 @@
           justify-content: space-between;
           padding: 20px;
       }
-  
-    section {
-          margin: 4rem;
-      }
 
-    .login-signup {
-          flex-flow: row nowrap;
-          align-items: flex-start;
-      }
-  
-    .login-form,
-    .signup-form {
-          flex: 1 0 30%;
-          padding: 20px;
-          border-top: none;
-          border-left: solid 1px var(--white);
-      }
+    #heading {
+      font-size: 5rem;
+    }
 
-      .post-card {
-        width: 80%;
-      }
+    .login-div {
+      padding: 0 1rem 4rem 1rem;
+    }
+  
+    .signup-div {
+      padding: 4rem 1rem 0 1rem;
+      border-top: solid 1px black;
+      border-left: none;
+    }
+
+
+
+  }
+
+  @media screen and (max-width: 992px) {
+    .signup-div {
+      padding: 4rem 1rem 0 1rem;
+      border-top: solid 1px black;
+      border-left: none;
+    }
   }

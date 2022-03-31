@@ -13,6 +13,13 @@ module.exports = {
         return true
       }
     },
+    plurals: (num) => {
+      if (num === 1) {
+        return '1 gratitude'
+      } else {
+        return `${num} gratitudes`
+      }
+    },
     prevDay: (unix) => {
       return unix - 86400;
     },
