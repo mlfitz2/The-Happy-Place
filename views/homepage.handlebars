@@ -2,6 +2,7 @@
   <div class="date-nav rounded d-flex justify-content-center align-items-center">
     <a class="date-nav-btn rounded-pill" href="/{{prevDay todayUnix}}"><</a>
     <h2 class="rounded-pill" data-date="{{todayUnix}}">{{today}}</h2>
+        <a class="date-nav-btn rounded-pill">></a>
   </div>
 </div>
 
@@ -16,23 +17,21 @@
           <h2 data-postId="{{post.id}}">
             {{post.title}}
           </h2>
-          <h3>
-            By <a href="/api/profile/{{post.user.name}}"><strong>{{post.user.name}}</strong></a>
-          </h3>
         </div>
           <p class="post-body text-center">
             {{post.content}}
           </p>
         <div class="post-footer text-center">
+          <p>
+              Posted by <a href="/api/profile/{{post.user.name}}"><strong>{{post.user.name}}</strong></a>on <strong>{{format_date post.createdAt}}</strong>
+          </p>
           {{!-- add in edited flag if edited --}}
           {{#if (is_edited post)}}
             <p>
               <em>Edited</em>
             </p>
           {{/if}}
-          <p>
-            Posted on <strong>{{format_date post.createdAt}}</strong>
-          </p>
+
         </div>
       </article>
     {{/each}}

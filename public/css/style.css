@@ -1,31 +1,130 @@
-body {
+  body {
     font-family: garamond;
-    padding: 20px;
+    font-size: 18px;
     background: #1488cc;
     background: -webkit-linear-gradient(to right, #77ac67, #c5ecb8);
     background: linear-gradient(to right,#77ac67,#c5ecb8);
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
   }
   
-  .header {
-    padding: 30px;
-    font-size: 40px;
-    text-align: center;
-    background: white;
+  header {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    background-color: black;
+    padding: 10px;
+    margin-bottom: 2rem;
+    height: 80px;
   }
 
-  #header {
+  .logo-container {
+    padding: 0;
+    flex: 1 0 20%;
+  }
+
+  .logo {
+    width: 40px;
+    border-top: 2px solid var(--textstr);
+    border-bottom: 2px solid var(--textstr);
+    padding: 3px;
+    vertical-align: middle;
+    text-align: center;
+    font-size: 30px;
+    color: lightgreen;
+    height: auto;
+  }
+
+  nav {
+    color: white;
+    background-color: black;
+    font-size: 22px;
+    padding: 70px 0 2rem 0;
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 3;
+    opacity: 90%;
+    border-radius: 0 0 0 10px;
+    height: 100vh;
+    transition: 0.5s;
+  }
+
+  nav ul {
+    display: flex;
+    flex-flow: column;
+    justify-content: flex-end;
+    padding-top: 1rem;
+  }
+
+  nav li {
+    display: inline;
+    list-style: none;
+    text-decoration: none;
+    margin: 1rem 25px 1rem 10rem;
+    flex: 1 0 100%;
+    text-align: right;
+  }
+
+  a {
+    text-decoration: none;
+    color: white;
+  }
+
+  a:hover,
+  a:focus {
+    text-decoration: none;
+    color: lightgreen;
+  }
+
+  .menu-link {
+    display: block;
+    width: 100%;
+  }
+
+  .icon {
+    color: lightgreen;
+    z-index: 3;
+    position: fixed;
+    right: 15px;
+    padding: 15px;
+    border-radius: 5px;
+  }
+
+  .button-link {
+    border: solid 1px whitesmoke;
+    border-radius: 5px;
+    padding: 5px 10px 5px 10px;
+    color: black;
+    background-color: whitesmoke;
+    text-decoration: none;
+    font-size: 22px;
+  }
+  
+  /* change button syling on hover */
+  .button-link:hover,
+  .button-link:focus,
+  .icon:hover,
+  .icon:active {
+    background-color: lightgreen;
+    color: black;
+    cursor: pointer;
+  }
+
+  .username {
+    color: lightgray;
+  }
+
+  #heading {
     font-family: 'Tangerine', cursive;
     font-size: 6em;
   }
 
   #quote, #author {
     font-family: garamond;
-  }
-
-  .nav-link {
-    font-size: 1.25em;
-    font-weight: bolder;
-    color: #ececec;
   }
   
   h1 {
@@ -34,7 +133,16 @@ body {
     letter-spacing: 0.5px;
     color: #333;
   }
-  
+
+  h2 {
+    font-weight: bolder;
+    margin-bottom: 1rem;
+  }
+
+  p {
+    font-size: 130%;
+  }
+
   .leftcolumn {
     float: left;
     width: 75%;
@@ -85,6 +193,14 @@ body {
     font-size: 1.2em;
   }
 
+  .post-footer {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    gap: 2rem;
+    font-size: 90%;
+  }
+
   .author-name {
     color: #ebf189;
   }
@@ -102,6 +218,10 @@ body {
     margin-top: 20px;
   }
 
+  .hidden {
+    display: none !important;
+  }
+
   @media screen and (max-width: 800px) {
     .leftcolumn, .rightcolumn {
       width: 100%;
@@ -116,11 +236,6 @@ body {
   
     section {
           margin: 4rem;
-      }
-  
-    .username {
-          padding: 1rem 4rem 0 0;
-          text-align: right;
       }
 
     .login-signup {
