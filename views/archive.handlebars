@@ -1,18 +1,18 @@
 <div class="d-flex justify-content-center">
-<div class="date-nav rounded d-flex justify-content-center align-items-center">
-  <a class="date-nav-btn rounded-pill" href="/{{prevDay dayUnix}}"><</a>
-  <h2 class="rounded-pill" data-date="{{dayUnix}}">{{day}}</h2>
-  <a class="date-nav-btn rounded-pill" href="/{{nextDay dayUnix}}">></a>
-</div>
+  <div class="date-nav rounded d-flex justify-content-center align-items-center">
+    <a class="date-nav-btn rounded-pill" href="/{{prevDay dayUnix}}"><</a>
+    <h2 class="rounded-pill" data-date="{{dayUnix}}">{{day}}</h2>
+    <a class="date-nav-btn rounded-pill" href="/{{nextDay dayUnix}}">></a>
+  </div>
 </div>
 
-<section class="post-card d-flex flex-row">
+<section class="d-flex flex-wrap flex-row justify-content-center">
     {{#unless posts}}
       <p>No posts were made on this date</p>
     {{/unless}}
     {{#each posts as |post| }}
-      <article>
-        <div class="post-header">
+      <article class="post-card">
+        <div class="post-header text-center">
           <h2 data-postId="{{post.id}}">
             {{post.title}}
           </h2>
@@ -20,10 +20,10 @@
             By <a href="/api/profile/{{post.user.name}}"><strong>{{post.user.name}}</strong></a>
           </h3>
         </div>
-          <p class="post-body">
+          <p class="post-body text-center">
             {{post.content}}
           </p>
-        <div class="post-footer">
+        <div class="post-footer text-center">
           {{!-- add in edited flag if edited --}}
           {{#if (is_edited post)}}
             <p>
