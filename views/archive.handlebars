@@ -2,6 +2,9 @@
   <a href="/{{prevDay dayUnix}}"><</a>
   <h2 data-date="{{dayUnix}}">{{day}}</h2>
   <a href="/{{nextDay dayUnix}}">></a>
+    {{#unless posts}}
+      <p>No posts were made on this date</p>
+    {{/unless}}
     {{#each posts as |post| }}
       <article>
         <div class="post-header">
