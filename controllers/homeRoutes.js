@@ -2,7 +2,6 @@ const router = require('express').Router();
 const { Post, User } = require('../models');
 const withAuth = require('../utils/auth');
 const { startOfToday, endOfToday, startOfDay, endOfDay, getUnixTime, fromUnixTime } = require('date-fns');
-const { zonedTimeToUtc } = require('date-fns-tz');
 const { daySimple } = require('../utils/dates');
 const { Op } = require('sequelize');
 
@@ -10,19 +9,12 @@ const { Op } = require('sequelize');
 // homepage defaults to today
 router.get('/', async (req, res) => {
 
-  // set TZ, pull start and end date of today. Dates will default to TZ of server
   const startDate = startOfToday();
   const endDate = endOfToday();
-
-  // convert to local time PST
-  const timeZone = 'America/Los_Angeles';
-  const utcStart = zonedTimeToUtc(startDate, timeZone)
-
-  // convert to simple string for render to client and unix timestamp for view-by-date functionality
   const todayString = daySimple(JSON.stringify(startDate));
-  const todayUnix = getUnixTime(utcStart);
+  const todayUnix = getUnixTime(startDate);
 
-  try {
+   try {
     const postData = await Post.findAll({
       include: [
         {
@@ -48,7 +40,6 @@ router.get('/', async (req, res) => {
       posts,
       today: todayString,
       todayUnix,
-      utcStart,
       // Pass the logged in flag to the template
       logged_in: req.session.logged_in,
       username: req.session.username
