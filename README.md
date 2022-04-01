@@ -10,6 +10,11 @@
 **As social media has become an increasingly toxic environment driven by a need for instant gratification** our app will not be based on interaction or likes, and instead will focus on the *value of journaling positive experiences.*
 
 
+Here we share our gratitude for the good times and the bad, the ups and the downs and all that fall in between.
+You are welcome to join us to share in our thoughts, our struggles, our accomplishments, our goals, ourselves.
+Feel free to make an account through the Login page found in the top right menu to partake in this journey we call life, together.
+
+
 
 ##                  Who is **The Happy Place :)** Made for Anyways?
 
