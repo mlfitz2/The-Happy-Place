@@ -14,109 +14,109 @@
     <title>The Happy Place</title>
 </head>
 <body>
-
-    <header>
-        <div class="logo-container">
-            <i class="logo fa-solid fa-face-smile"></i>
-        </div>
-        <nav class="menu hidden">
-            <ul>
-                <li><a href="/" class="menu-link">Home</a></li>
-                <li><a href="/api/profile" class="menu-link">Profile</a></li>
-                {{#if logged_in}}
-                <!-- Trigger/Open The Modal -->
-                <li><button class="button-link" id="modal-btn">New Post</button></li>
-                <br/>
-                <li class="username">Logged in as <strong>{{username}}</strong></li>
-                <li><a class="menu-link" href="/" id="logout">Logout</a></li>
-                {{else}}
-                <li><a class="button-link" href="/login">Login</a></li>
-                {{/if}}
-            </ul>
-        </nav>
-        <a href="javascript:void(0);" class="help">
-            <i class="help-icon fa-solid fa-question" id="help-icon"></i>
-        </a>
-        <a href="javascript:void(0);" class="icon">
-            <i class="menu fa-solid fa-bars fa-2xl" id="menu-mobile"></i>
-            <i class="menu fa-solid fa-xmark fa-2xl hidden" id="menu-mobile-close"></i>
-        </a>
-    </header>
-    <main>
-        <h1 class="text-center m-2" id="heading">The Happy Place</h1>
-        <h4 class="text-center m-2 font-italic">"<span id="quote"></span>"</h4>
-        <h4 class="text-center m-2 font-italic"><span id="author"></span></h4>
-    
-        {{{ body }}}
-    </main>
-
+    <div id="modal-blur">
+        <header>
+            <div class="logo-container">
+                <i class="logo fa-solid fa-face-smile"></i>
+            </div>
+            <nav class="menu hidden">
+                <ul>
+                    <li><a href="/" class="menu-link">Home</a></li>
+                    <li><a href="/api/profile" class="menu-link">Profile</a></li>
+                    {{#if logged_in}}
+                    <!-- Trigger/Open The Modal -->
+                    <li><button class="button-link" id="modal-btn">New Post</button></li>
+                    <br/>
+                    <li class="username">Logged in as <strong>{{username}}</strong></li>
+                    <li><a class="menu-link" href="/" id="logout">Logout</a></li>
+                    {{else}}
+                    <li><a class="button-link" href="/login">Login</a></li>
+                    {{/if}}
+                </ul>
+            </nav>
+            <a href="javascript:void(0);" class="help">
+                <i class="help-icon fa-solid fa-question" id="help-icon"></i>
+            </a>
+            <a href="javascript:void(0);" class="icon">
+                <i class="menu fa-solid fa-bars fa-2xl" id="menu-mobile"></i>
+                <i class="menu fa-solid fa-xmark fa-2xl hidden" id="menu-mobile-close"></i>
+            </a>
+        </header>
+        <main>
+            <h1 class="text-center m-2" id="heading">The Happy Place</h1>
+            <h4 class="text-center m-2 font-italic">"<span id="quote"></span>"</h4>
+            <h4 class="text-center m-2 font-italic"><span id="author"></span></h4>
+        
+            {{{ body }}}
+        </main>
+        
+        <footer>
+            The Happy Place
+        </footer>
+    </div>
     <!-- The Modal -->
 
-        <div id="new-post-modal" class="modal">
-            <!-- Modal content -->
-            <div class="modal-content">
-                <div class="modal-header d-flex justify-content-around">
-                    <span class="modal-close">&times;</span>
-                    <h2 class="card-header text-center mb-3">What are you grateful for today?</h2>
-                </div>
-                    {{!-- add a new post --}}
-                    <section class="modal-body">
-                        <form id="newPostForm">
-                            <div class="form-group d-flex flex-column align-items-center">
-                                <label for="new-post-title text-center">Title:</label>
-                                <input class="form-control" type="text" id="new-post-title" required aria-required="true"/>
+    <div id="new-post-modal" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+            <div class="modal-header d-flex justify-content-around align-items-center">
+                <span class="modal-close">&times;</span>
+                <h2 class="card-header text-center">What are you grateful for today?</h2>
+            </div>
+                {{!-- add a new post --}}
+                <section class="modal-body">
+                    <form id="newPostForm">
+                        <div class="form-group d-flex flex-column align-items-center">
+                            <label for="new-post-title text-center">Title:</label>
+                            <input class="form-control" type="text" id="new-post-title" required aria-required="true"/>
+                        </div>
+                        <div class="form-group d-flex justify-content-center">
+                            <textarea name="new-post" id="new-post" class="comment-field" maxlength="250" required aria-required="true"></textarea>
+                        </div>
+                        <div class="form-group d-flex justify-content-around">
+                            <div class="new-post-controls text-center">
+                                <input type="radio" id="new-post-public" name="visibility" value="true" checked>
+                                <label for="public">Public</label><br>
+                                <input type="radio" id="new-post-private" name="visibility" value="false">
+                                <label for="private">Private</label><br>
                             </div>
-                            <div class="form-group d-flex justify-content-center">
-                                <textarea name="new-post" id="new-post" class="comment-field" maxlength="250" required aria-required="true"></textarea>
-                            </div>
-                            <div class="form-group d-flex justify-content-around">
-                                <div class="new-post-controls text-center">
-                                    <input type="radio" id="new-post-public" name="visibility" value="true" checked>
-                                    <label for="public">Public</label><br>
-                                    <input type="radio" id="new-post-private" name="visibility" value="false">
-                                    <label for="private">Private</label><br>
-                                </div>
-                                <p class="new-post-controls-info">Public posts are visible to all viewers. Private posts are only visible to you.</p>
-                            </div>
-                            <div class="d-flex justify-content-center">
-                                <p class="error" style="display: none;">❌ Please enter a complete title and post content.</p>
-                                <button class="btn-primary button-link" type="submit">Create Post</button>
-                            </div>
-                        </form>
-                    </section>
-                <div class="modal-footer d-flex justify-content-center">
-                    <h3>Posting as <strong>{{username}}</strong></h3>
-                </div>
+                            <p class="new-post-controls-info">Public posts are visible to all viewers. Private posts are only visible to you.</p>
+                        </div>
+                        <div class="d-flex justify-content-center">
+                            <p class="error" style="display: none;">❌ Please enter a complete title and post content.</p>
+                            <button class="btn-primary button-link" type="submit">Create Post</button>
+                        </div>
+                    </form>
+                </section>
+            <div class="modal-footer d-flex justify-content-center">
+                <h3>Posting as <strong>{{username}}</strong></h3>
             </div>
         </div>
+    </div>
 
 
-          <!-- The About Modal -->
-        <div id="about-modal" class="modal">
-            <!-- Modal content -->
-            <div class="modal-content">
-                <div class="modal-header">
-                    <span class="about-modal-close">&times;</span>
-                </div>
-                    {{!-- About copy --}}
-                    <section class="modal-body">
-                        <h2 class="card-header">Welcome to The Happy Place</h2>
-                        <p>
-                            Here we share our gratitude for the good times and the bad, the ups and the downs and all that fall in between. You are welcome to join us and share in our thoughts, our accomplishments, our goals, ourselves.
-                        </p>
-                        <p>
-                            There are no "likes", and no comments. This site is built for you to journal for yourself, publically or privately, in service of your wellbeing. Feel free to make an account through the Login page found in the top right menu to partake in this journey we call life, together.
-                        </p>
-                    </section>
-                <div class="modal-footer d-flex justify-content-center">
-                    <h3>What are you grateful for today?</h3>
-                </div>
+        <!-- The About Modal -->
+    <div id="about-modal" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+            <div class="modal-header d-flex justify-content-around align-items-center">
+                <span class="about-modal-close">&times;</span>
+                <h2 class="card-header text-center">Welcome to The Happy Place</h2>
+            </div>
+                {{!-- About copy --}}
+                <section class="modal-body">
+                    <p>
+                        Here we share our gratitude for the good times and the bad, the ups and the downs and all that fall in between. You are welcome to join us and share in our thoughts, our accomplishments, our goals, ourselves.
+                    </p>
+                    <p>
+                        There are no "likes", and no comments. This site is built for you to journal for yourself, publically or privately, in service of your wellbeing. Feel free to make an account through the Login page found in the top right menu to partake in this journey we call life, together.
+                    </p>
+                </section>
+            <div class="modal-footer d-flex justify-content-center">
+                <h3>What are you grateful for today?</h3>
             </div>
         </div>
-
-    <footer>
-        The Happy Place
-    </footer>
+    </div>
 
     {{#if logged_in}}
     <script src="/js/logout.js"></script>

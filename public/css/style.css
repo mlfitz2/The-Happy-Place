@@ -28,14 +28,11 @@
 
   .logo {
     width: 40px;
-    border-top: 2px solid var(--textstr);
-    border-bottom: 2px solid var(--textstr);
     padding: 3px;
     vertical-align: middle;
     text-align: center;
     font-size: 30px;
     color: lightgreen;
-    height: auto;
   }
 
   nav {
@@ -84,7 +81,8 @@
   .modal-content {
     width: 80%;
     left: 10%;
-    /* border: black solid 5px; */
+    top: 5%;
+    border-radius: 10px;
   }
 
   .comment-field {
@@ -100,12 +98,14 @@
     background-color: #483248;
     color: whitesmoke;
     width: 90%;
+    border: none;
   }
 
   .modal-body {
     background-color: #77ac67;
     color: black;
     font-size: 1.25em;
+    font-size: 90%;
   }
 
   .modal-footer {
@@ -121,6 +121,7 @@
   .modal-header {
     background-color: #483248;
     border-bottom: 0px;
+    padding: 0 1rem;
   } 
 
   .new-post-controls {
@@ -132,8 +133,17 @@
     width: 60%;
   }
 
-  .modal-close {
+  .modal-close,
+  .about-modal-close {
     color: white;
+    font-size: 60px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+  .modal-close:hover,
+  .about-modal-close:hover {
+    color: lightgreen;
   }
 
 
