@@ -101,11 +101,23 @@
 
   .icon {
     color: lightgreen;
+    background-color: black;
     z-index: 3;
     position: fixed;
     right: 15px;
     padding: 15px;
     border-radius: 5px;
+  }
+
+  .help {
+    color: lightgreen;
+    background-color: black;
+    z-index: 3;
+    position: absolute;
+    right: 100px;
+    padding: 8px 22px;
+    border-radius: 5px;
+    font-size: 30px;
   }
 
   .button-link {
@@ -121,6 +133,8 @@
   /* change button syling on hover */
   .button-link:hover,
   .button-link:focus,
+  .help:hover,
+  .help:focus,
   .icon:hover,
   .icon:active {
     background-color: lightgreen;

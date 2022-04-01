@@ -20,8 +20,8 @@ const hbs = exphbs.create({ helpers });
 const sess = {
   secret: 'abc',
   cookie: {
-    // Session expires after 5 mins of inactivity.
-    expires: 300000
+    // Session expires after 10 mins of inactivity.
+    expires: 600000
   },
   resave: false,
   saveUninitialized: true,
