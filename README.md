@@ -86,15 +86,11 @@ Feel free to make an account through the Login page found in the top right menu 
 [Sequelize](https://sequelize.org/)
 
         
-            ```
-            Insert Example Code Block Here
-            ```
+           
 
 [Handlebars.js](https://handlebarsjs.com/)
 
-            ```
-            Insert Example Code Block Here
-            ```
+           
         
 
 
@@ -139,6 +135,8 @@ Try the deployed application for yourself at:
 
 [Link Text](https://path/to/link)
 
+
+Thanks for reading. Enjoy The Happy Place!
 
 
 
