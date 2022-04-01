@@ -7,17 +7,20 @@ const newPostModalControl = function(){
     // When the user clicks the button, open the modal 
     btn.addEventListener('click', function() {
         modal.style.display = "block";
+        document.getElementById('modal-blur').className = 'is-blurred';
     });
 
     // When the user clicks on <span> (x), close the modal
     span.addEventListener('click', function() {
         modal.style.display = "none";
+        document.getElementById('modal-blur').className = '';
     });
 
     // When the user clicks anywhere outside of the modal, close it
     window.addEventListener('click', function(event) {
         if (event.target == modal) {
         modal.style.display = "none";
+        document.getElementById('modal-blur').className = '';
         };
     });
 };
@@ -69,17 +72,20 @@ const aboutModalControl = function(){
     // When the user clicks the button, open the modal 
     btn.addEventListener('click', function() {
         modal.style.display = "block";
+        document.getElementById('modal-blur').className = 'is-blurred';
     });
 
     // When the user clicks on <span> (x), close the modal
     span.addEventListener('click', function() {
         modal.style.display = "none";
+        document.getElementById('modal-blur').className = '';
     });
 
     // When the user clicks anywhere outside of the modal, close it
     window.addEventListener('click', function(event) {
         if (event.target == modal) {
         modal.style.display = "none";
+        document.getElementById('modal-blur').className = '';
         };
     });
 };
