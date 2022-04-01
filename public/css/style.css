@@ -15,7 +15,7 @@
     flex-direction: row;
     justify-content: flex-end;
     align-items: center;
-    background-color: #221B1F;
+    background-color: #483248;
     padding: 10px;
     margin-bottom: 2rem;
     height: 80px;
@@ -40,7 +40,7 @@
 
   nav {
     color: white;
-    background-color: #221B1F;
+    background-color: #483248;
     font-size: 22px;
     padding: 70px 0 2rem 0;
     position: fixed;
@@ -81,12 +81,10 @@
   }
 
 
-  .new-post-modal {
+  .modal-content {
     width: 80%;
-    position: fixed;
-    display: none;
-    top: 0;
-    border: black solid 5px;
+    left: 10%;
+    /* border: black solid 5px; */
   }
 
   .comment-field {
@@ -99,9 +97,9 @@
   }
 
   .card-header {
-    background-color: #000000;
+    background-color: #483248;
     color: whitesmoke;
-    width: 100%;
+    width: 90%;
   }
 
   .modal-body {
@@ -111,7 +109,7 @@
   }
 
   .modal-footer {
-    background-color: #000000;
+    background-color: #483248;
     color: whitesmoke;
   }
 
@@ -121,9 +119,22 @@
   }
 
   .modal-header {
-    background-color: #77ac67;
+    background-color: #483248;
     border-bottom: 0px;
   } 
+
+  .new-post-controls {
+    width: 40%;
+    font-size: 1.2em;
+  }
+
+  .new-post-controls-info {
+    width: 60%;
+  }
+
+  .modal-close {
+    color: white;
+  }
 
 
 
@@ -149,7 +160,7 @@
 
   .icon {
     color: lightgreen;
-    background-color: #221B1F;
+    background-color: #483248;
     z-index: 3;
     position: fixed;
     right: 15px;
@@ -159,7 +170,7 @@
 
   .help {
     color: lightgreen;
-    background-color: #221B1F;
+    background-color: #483248;
     z-index: 3;
     position: absolute;
     right: 100px;
@@ -172,7 +183,7 @@
     border: solid 1px whitesmoke;
     border-radius: 5px;
     padding: 5px 10px 5px 10px;
-    color: #221B1F;
+    color: #483248;
     background-color: whitesmoke;
     text-decoration: none;
     font-size: 22px;
@@ -186,7 +197,7 @@
   .icon:hover,
   .icon:active {
     background-color: lightgreen;
-    color: #221B1F;
+    color: #483248;
     cursor: pointer;
   }
 
@@ -248,7 +259,7 @@
 
   .date-nav-btn {
     color: #cbd4db;
-    background-color: #221B1F;
+    background-color: #483248;
     font-weight: bold;
     margin: 0% 15%;
     padding: 2% 6%;
@@ -272,7 +283,7 @@
     margin: 5px;
     color: #ececec;
     padding: 1%;
-    border: 2px solid #221B1F;
+    border: 2px solid #483248;
     border-radius: 10px;
   }
 
@@ -301,7 +312,7 @@
 
   .signup-div {
     padding: 0 0 0 4rem;
-    border-left: solid 1px #221B1F;
+    border-left: solid 1px #483248;
   }
 
   .error {
@@ -312,7 +323,7 @@
   footer {
     padding: 20px;
     text-align: center;
-    background: #221B1F;
+    background: #483248;
     color: whitesmoke;
     margin-top: 6rem;
   }
@@ -343,7 +354,7 @@
   
     .signup-div {
       padding: 4rem 1rem 0 1rem;
-      border-top: solid 1px #221B1F;
+      border-top: solid 1px #483248;
       border-left: none;
     }
 
@@ -364,7 +375,7 @@
   @media screen and (max-width: 992px) {
     .signup-div {
       padding: 4rem 1rem 0 1rem;
-      border-top: solid 1px #221B1F;
+      border-top: solid 1px #483248;
       border-left: none;
     }
   }
