@@ -1,5 +1,5 @@
-// modal functionality
-const modalControl = function(){
+// new post modal functionality
+const newPostModalControl = function(){
     const modal = document.getElementById('new-post-modal');
     const btn = document.getElementById('modal-btn');
     const span = document.querySelector('.modal-close');
@@ -55,6 +55,35 @@ document.querySelector('#newPostForm').addEventListener('submit', addPost);
 // if the user is logged in and therefore the modal button displays, add an event listener to it
 window.addEventListener('load', function() {
     if(document.getElementById('modal-btn')) {
-        modalControl();
+        newPostModalControl();
     }
 });
+
+
+// about the site modal functionality
+const aboutModalControl = function(){
+    const modal = document.getElementById('about-modal');
+    const btn = document.querySelector('.help');
+    const span = document.querySelector('.about-modal-close');
+
+    // When the user clicks the button, open the modal 
+    btn.addEventListener('click', function() {
+        modal.style.display = "block";
+    });
+
+    // When the user clicks on <span> (x), close the modal
+    span.addEventListener('click', function() {
+        modal.style.display = "none";
+    });
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.addEventListener('click', function(event) {
+        if (event.target == modal) {
+        modal.style.display = "none";
+        };
+    });
+};
+
+
+// event listener for the modal
+window.addEventListener('load', aboutModalControl());
