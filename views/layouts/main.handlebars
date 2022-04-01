@@ -50,8 +50,9 @@
         {{{ body }}}
     </main>
 
-    <!-- The New Post Modal -->
-        <div id="new-post-modal" class="modal">
+    <!-- The Modal -->
+    <div class="d-flex justify-content-center align-items-center">
+        <div id="new-post-modal" class="new-post-modal">
             <!-- Modal content -->
             <div class="modal-content">
                 <div class="modal-header">
@@ -59,31 +60,34 @@
                 </div>
                     {{!-- add a new post --}}
                     <section class="modal-body">
-                        <h2 class="card-header">What are you Grateful for today?</h2>
+                        <h2 class="card-header text-center mb-3">What are you grateful for today?</h2>
                         <form id="newPostForm">
-                            <div class="form-group">
-                                <label for="new-post-title">Title:</label>
+                            <div class="form-group d-flex flex-column align-items-center">
+                                <label for="new-post-title text-center">Title:</label>
                                 <input class="form-control" type="text" id="new-post-title" required aria-required="true"/>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group d-flex justify-content-center">
                                 <textarea name="new-post" id="new-post" class="comment-field" maxlength="250" required aria-required="true"></textarea>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group text-center">
                                 <p>Public posts are visible to all viewers. Private posts are only visible to you.</p>
                                     <input type="radio" id="new-post-public" name="visibility" value="true" checked>
                                     <label for="public">Public</label><br>
                                     <input type="radio" id="new-post-private" name="visibility" value="false">
                                     <label for="private">Private</label><br>
                             </div>
-                            <p class="error" style="display: none;">❌ Please enter a complete title and post content.</p>
-                            <button class="btn-primary" type="submit">Create Post</button>
+                            <div class="d-flex justify-content-center">
+                                <p class="error" style="display: none;">❌ Please enter a complete title and post content.</p>
+                                <button class="btn-primary button-link" type="submit">Create Post</button>
+                            </div>
                         </form>
                     </section>
-                <div class="modal-footer">
+                <div class="modal-footer d-flex justify-content-center">
                     <h3>Posting as <strong>{{username}}</strong></h3>
                 </div>
             </div>
         </div>
+    </div>
 
           <!-- The About Modal -->
         <div id="about-modal" class="modal">
