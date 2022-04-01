@@ -80,6 +80,54 @@
     color: lightgreen;
   }
 
+
+  .new-post-modal {
+    width: 80%;
+    position: fixed;
+    display: none;
+    top: 0;
+    border: black solid 5px;
+  }
+
+  .comment-field {
+    width: 75%;
+    height: 20vh;
+  }
+
+  #new-post-title {
+    width: 75%;
+  }
+
+  .card-header {
+    background-color: #000000;
+    color: whitesmoke;
+    width: 100%;
+  }
+
+  .modal-body {
+    background-color: #77ac67;
+    color: black;
+    font-size: 1.25em;
+  }
+
+  .modal-footer {
+    background-color: #000000;
+    color: whitesmoke;
+  }
+
+  .is-blurred {
+    filter: blur(2px);
+    -webkit-filter: blur(2px);
+  }
+
+  .modal-header {
+    background-color: #77ac67;
+    border-bottom: 0px;
+  } 
+
+
+
+
   .user-link {
     color: lightgreen;
   }
@@ -291,6 +339,10 @@
       border-bottom: solid 1px darkolivegreen;
       margin-bottom: 3rem;
       margin-right: 0;
+    }
+
+    .comment-field {
+      height: 15vh;
     }
 
   }
