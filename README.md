@@ -19,7 +19,7 @@ Feel free to make an account through the Login page found in the top right menu 
 ##                  Who is **The Happy Place :)** Made for Anyways?
 
 
-![The Happy Place](https://www.livehappy.com/wp-content/uploads/2018/02/happy.jpg)
+![Typical social media](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxOHV1tFEHL2CXOil4YM9ept8mnCQjUjScGA&usqp=CAU)
 
 **AS A USER**
 
@@ -126,7 +126,7 @@ This project is developed by *groupFive*
 #####                   Wanna Try?
 
 
-![The Happy Place](https://www.livehappy.com/wp-content/uploads/2018/02/happy.jpg)
+![The Happy Place](https://images.squarespace-cdn.com/content/v1/5dc364e749035d18e6487b1a/1574125097244-WOT8UEGEORK43SWBQFQE/59244174_368886433968369_8260657057507697092_n.jpg?format=1000w)
 
 
 
