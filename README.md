@@ -10,11 +10,16 @@
 **As social media has become an increasingly toxic environment driven by a need for instant gratification** our app will not be based on interaction or likes, and instead will focus on the *value of journaling positive experiences.*
 
 
+Here we share our gratitude for the good times and the bad, the ups and the downs and all that fall in between.
+You are welcome to join us to share in our thoughts, our struggles, our accomplishments, our goals, ourselves.
+Feel free to make an account through the Login page found in the top right menu to partake in this journey we call life, together.
+
+
 
 ##                  Who is **The Happy Place :)** Made for Anyways?
 
 
-![The Happy Place](https://www.livehappy.com/wp-content/uploads/2018/02/happy.jpg)
+![Typical social media](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxOHV1tFEHL2CXOil4YM9ept8mnCQjUjScGA&usqp=CAU)
 
 **AS A USER**
 
@@ -81,15 +86,11 @@
 [Sequelize](https://sequelize.org/)
 
         
-            ```
-            Insert Example Code Block Here
-            ```
+           
 
 [Handlebars.js](https://handlebarsjs.com/)
 
-            ```
-            Insert Example Code Block Here
-            ```
+           
         
 
 
@@ -121,7 +122,7 @@ This project is developed by *groupFive*
 #####                   Wanna Try?
 
 
-![The Happy Place](https://www.livehappy.com/wp-content/uploads/2018/02/happy.jpg)
+![The Happy Place](https://images.squarespace-cdn.com/content/v1/5dc364e749035d18e6487b1a/1574125097244-WOT8UEGEORK43SWBQFQE/59244174_368886433968369_8260657057507697092_n.jpg?format=1000w)
 
 
 
@@ -134,6 +135,8 @@ Try the deployed application for yourself at:
 
 [Link Text](https://path/to/link)
 
+
+Thanks for reading. Enjoy The Happy Place!
 
 
 
