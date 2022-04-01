@@ -28,7 +28,7 @@
           </p>
         <div class="post-footer text-center d-flex flex-row flex-wrap justify-content-center">
           <p>
-              Posted by <a class="user-link" href="/api/profile/{{post.user.name}}"><strong>{{post.user.name}}</strong></a>on <strong>{{format_date post.createdAt}}</strong>
+              Posted by <a class="user-link" href="/api/profile/{{post.user.name}}"><strong>{{post.user.name}}</strong></a> on <strong>{{format_date post.createdAt}}</strong>
           </p>
           {{!-- add in edited flag if edited --}}
           {{#if (is_edited post)}}

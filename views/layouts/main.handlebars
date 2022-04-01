@@ -34,6 +34,9 @@
                 {{/if}}
             </ul>
         </nav>
+        <a href="javascript:void(0);" class="help">
+            <i class="help-icon fa-solid fa-question" id="help-icon"></i>
+        </a>
         <a href="javascript:void(0);" class="icon">
             <i class="menu fa-solid fa-bars fa-2xl" id="menu-mobile"></i>
             <i class="menu fa-solid fa-xmark fa-2xl hidden" id="menu-mobile-close"></i>
@@ -47,7 +50,7 @@
         {{{ body }}}
     </main>
 
-    <!-- The Modal -->
+    <!-- The New Post Modal -->
         <div id="new-post-modal" class="modal">
             <!-- Modal content -->
             <div class="modal-content">
@@ -82,6 +85,29 @@
             </div>
         </div>
 
+          <!-- The About Modal -->
+        <div id="about-modal" class="modal">
+            <!-- Modal content -->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="about-modal-close">&times;</span>
+                </div>
+                    {{!-- About copy --}}
+                    <section class="modal-body">
+                        <h2 class="card-header">Welcome to The Happy Place</h2>
+                        <p>
+                            Here we share our gratitude for the good times and the bad, the ups and the downs and all that fall in between. You are welcome to join us and share in our thoughts, our accomplishments, our goals, ourselves.
+                        </p>
+                        <p>
+                            There are no "likes", and no comments. This site is built for you to journal for yourself, publically or privately, in service of your wellbeing. Feel free to make an account through the Login page found in the top right menu to partake in this journey we call life, together.
+                        </p>
+                    </section>
+                <div class="modal-footer">
+                    <h3>What are you grateful for today?</h3>
+                </div>
+            </div>
+        </div>
+
     <footer>
         The Happy Place
     </footer>
@@ -89,7 +115,7 @@
     {{#if logged_in}}
     <script src="/js/logout.js"></script>
     {{/if}}
-    <script src="/js/newPostModal.js"></script>
+    <script src="/js/modals.js"></script>
     <script src="/js/displayquote.js"></script>
     <script src="/js/quotes.js"></script>
     <script src="/js/navMenu.js"></script>
