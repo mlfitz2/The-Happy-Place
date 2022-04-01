@@ -51,16 +51,16 @@
     </main>
 
     <!-- The Modal -->
-    <div class="d-flex justify-content-center align-items-center">
-        <div id="new-post-modal" class="new-post-modal">
+
+        <div id="new-post-modal" class="modal">
             <!-- Modal content -->
             <div class="modal-content">
-                <div class="modal-header">
+                <div class="modal-header d-flex justify-content-around">
                     <span class="modal-close">&times;</span>
+                    <h2 class="card-header text-center mb-3">What are you grateful for today?</h2>
                 </div>
                     {{!-- add a new post --}}
                     <section class="modal-body">
-                        <h2 class="card-header text-center mb-3">What are you grateful for today?</h2>
                         <form id="newPostForm">
                             <div class="form-group d-flex flex-column align-items-center">
                                 <label for="new-post-title text-center">Title:</label>
@@ -69,12 +69,14 @@
                             <div class="form-group d-flex justify-content-center">
                                 <textarea name="new-post" id="new-post" class="comment-field" maxlength="250" required aria-required="true"></textarea>
                             </div>
-                            <div class="form-group text-center">
-                                <p>Public posts are visible to all viewers. Private posts are only visible to you.</p>
+                            <div class="form-group d-flex justify-content-around">
+                                <div class="new-post-controls text-center">
                                     <input type="radio" id="new-post-public" name="visibility" value="true" checked>
                                     <label for="public">Public</label><br>
                                     <input type="radio" id="new-post-private" name="visibility" value="false">
                                     <label for="private">Private</label><br>
+                                </div>
+                                <p class="new-post-controls-info">Public posts are visible to all viewers. Private posts are only visible to you.</p>
                             </div>
                             <div class="d-flex justify-content-center">
                                 <p class="error" style="display: none;">❌ Please enter a complete title and post content.</p>
@@ -87,7 +89,7 @@
                 </div>
             </div>
         </div>
-    </div>
+
 
           <!-- The About Modal -->
         <div id="about-modal" class="modal">
@@ -106,7 +108,7 @@
                             There are no "likes", and no comments. This site is built for you to journal for yourself, publically or privately, in service of your wellbeing. Feel free to make an account through the Login page found in the top right menu to partake in this journey we call life, together.
                         </p>
                     </section>
-                <div class="modal-footer">
+                <div class="modal-footer d-flex justify-content-center">
                     <h3>What are you grateful for today?</h3>
                 </div>
             </div>
