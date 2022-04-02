@@ -1,18 +1,35 @@
 <div class="d-flex justify-content-center">
   <div class="date-nav rounded d-flex justify-content-center align-items-center">
-    <a class="date-nav-btn rounded-pill" href="/{{prevDay dayUnix}}"><</a>
-    <h2 class="rounded-pill" data-date="{{dayUnix}}">{{day}}</h2>
-    <a class="date-nav-btn rounded-pill" href="/{{nextDay dayUnix}}">></a>
+    {{#if private}}
+      <a class="date-nav-btn rounded-pill" href="/{{prevDay dayUnix}}/private"><</a>
+    {{else}}
+      <a class="date-nav-btn rounded-pill" href="/{{prevDay dayUnix}}"><</a>
+    {{/if}}
+      <h2 class="rounded-pill" data-date="{{dayUnix}}">{{day}}</h2>
+    {{#if private}}
+      <a class="date-nav-btn rounded-pill" href="/{{nextDay dayUnix}}/private">></a>
+    {{else}}
+      <a class="date-nav-btn rounded-pill" href="/{{nextDay dayUnix}}">></a>
+    {{/if}}
   </div>
 </div>
+    {{#if logged_in}}
+      <div class="d-flex flex-row justify-content-center mt-3">
+        <label class="switch">
+        {{#if private}}
+          <input type="checkbox" id="post-filter" checked>
+        {{else}}
+          <input type="checkbox" id="post-filter">
+        {{/if}}
+          <span class="slider round"></span>
+        </label>
+        <p class="ml-4">My Posts Only</p>
+      </div>
+    {{/if}}
     {{#unless posts}}
-    <section class="text-center mt-5">
-      <p>No posts were made on this date</p>
-    </section>
+      <p class="text-center mt-5">There were no posts on this day.</p>
     {{else}}
-    <section class="text-center">
-      <p>{{plurals posts.length}}</p>
-    </section>
+      <p class="text-center">{{plurals posts.length}}</p>
     {{/unless}}
 <section class="d-flex flex-wrap flex-row justify-content-center mt-5">
     {{#each posts as |post| }}
@@ -25,7 +42,7 @@
           <p class="post-body text-center">
             {{post.content}}
           </p>
-        <div class="post-footer text-center d-flex flex-row flex-wrap justify-content-center">
+        <div class="post-footer text-center d-flex flex-row flex-wrap justify-content-center align-items-center">
           {{!-- add in edited flag if edited --}}
           <p>
             Posted by <a class="user-link" href="/api/profile/{{post.user.name}}"><strong>{{post.user.name}}</strong></a> on <strong>{{format_date post.createdAt}}</strong>
@@ -35,7 +52,16 @@
               <em>Edited</em>
             </p>
           {{/if}}
+          {{#unless post.public}}
+            <p class="private">
+              Private
+            </p>
+          {{/unless}}
         </div>
       </article>
     {{/each}}
 </section>
+
+{{#if logged_in}}
+  <script src="/js/postFilter.js"></script>
+{{/if}}
