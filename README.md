@@ -33,11 +33,6 @@ Feel free to make an account through the Login page found in the top right menu 
 
 - I am able to view the public posts of other users by user
 
-- I can toggle to a calendar view and view a count of public posts by day
-
-- I can switch this view to only view a count of my own posts
-
-- When I click on a date I can view posts associated with that date
 
 
 
@@ -133,7 +128,7 @@ Visit the GitHub repository at:
 
 Try the deployed application for yourself at:
 
-[Link Text](https://path/to/link)
+[Link Text](https://the-happy-place-app.herokuapp.com/)
 
 
 Thanks for reading. Enjoy The Happy Place!
